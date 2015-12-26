@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="tell.server.model">
+	<class name="Activity" table="t_activity">
+		<id name="aId">
+			<generator class="identity"></generator>
+		</id>
+		<property name="name"></property>
+		<property name="description"></property>
+		<property name="startTime"></property>
+		<property name="endTime"></property>
+		<property name="place"></property>
+		<property name="remindTime"></property>
+		<property name="type"></property>
+		
+		<many-to-one name="team" class="Team" column="tId" cascade="save-update"/> 
+
+        <set name="participants" table="t_schedule">  
+            <key column="aId" />  
+            <many-to-many column="userId" class="User" />  
+        </set> 	
+	</class>
+</hibernate-mapping>

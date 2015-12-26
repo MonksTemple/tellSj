@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="tell.server.model">
+	<class name="User" table="t_user">
+		<id name="userId">
+			<generator class="assigned"></generator>
+		</id>
+		<property name="userName"></property>
+		<property name="password"></property>
+		<property name="phoneno"></property>
+		
+		<set name="notifications" inverse="true" cascade="save-update">  
+            <key column="userId"/>  
+            <one-to-many class="Notification"/>  
+        </set>  
+
+		<set name="cTeams" inverse="true" cascade="save-update">  
+            <key column="userId"/>  
+            <one-to-many class="Team"/>  
+        </set>  	
+ 
+        <set name="activities" table="t_schedule">  
+            <key column="userId" />  
+            <many-to-many column="aId" class="Activity" />  
+        </set> 
+
+         <set name="jTeams" table="t_teamMember">  
+            <key column="userId" />  
+            <many-to-many column="tId" class="Team" />  
+        </set>
+	</class>
+</hibernate-mapping>
