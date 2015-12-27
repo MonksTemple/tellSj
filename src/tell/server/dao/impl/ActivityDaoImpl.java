@@ -1,5 +1,6 @@
 package tell.server.dao.impl;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.hibernate.Query;
@@ -235,7 +236,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			session.getTransaction().begin();
 			String hql="from Activity where type =4";
 			Query query=session.createQuery(hql);
-			activites = (Set<Activity>) query.list();
+			activites = new HashSet<Activity>(query.list());
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
