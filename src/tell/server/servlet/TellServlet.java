@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSON;
 
+import net.sf.json.JSONArray;
+
 import tell.server.model.Activity;
 import tell.server.model.Notification;
 import tell.server.model.Team;
@@ -267,7 +269,8 @@ public class TellServlet extends HttpServlet {
 							out.write("false");
 						}
 						else{
-							String actsString = set2json(acts3);
+							JSONArray jsonArray = JSONArray.fromObject( acts3 );  
+							String actsString = jsonArray.toString();
 							out.write(actsString);
 						}
 					break;

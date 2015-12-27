@@ -1,6 +1,7 @@
 package tell.server.dao.impl;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.Query;
@@ -227,16 +228,19 @@ public class ActivityDaoImpl implements ActivityDao{
 		return activities;	
 	}
 
-	@Override
 	public Set<Activity> getIsolateActivites() {
-		Set<Activity> activites = null;
+		Set<Activity> activites = new HashSet();
 		Session session = null;
 		try{
 			session = HiberSessionFactory.getSession();  
 			session.getTransaction().begin();
 			String hql="from Activity where type =4";
 			Query query=session.createQuery(hql);
-			activites = new HashSet<Activity>(query.list());
+			for(Activity act:(List<Activity>)query.list()){
+				Activity temp = new Activity(act);
+				activites.add(temp);
+			}
+//			activites = new HashSet<Activity>(query.list());
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
@@ -248,5 +252,6 @@ public class ActivityDaoImpl implements ActivityDao{
 		
 		return activites;	
 	}
+
 
 }
