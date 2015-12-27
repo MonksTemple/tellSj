@@ -66,8 +66,15 @@ public class TellServlet extends HttpServlet {
 			case '1':
 				String temp1 = request.getParameter("user");
 				User  user1 = JSON.parseObject(temp1, User.class);
-				Boolean login = userManage.login(user1);
-				out.write(login.toString());
+				User myUser = userManage.login(user1);
+				if(myUser != null){
+					String tempUser = JSON.toJSONString(myUser);
+					out.write(tempUser);
+				}
+				else{
+					out.write("false");
+				}				
+				
 				break;
 		    //注册
 			case '2': 
@@ -76,19 +83,14 @@ public class TellServlet extends HttpServlet {
 				Boolean register = userManage.register(user2);
 				out.write(register.toString());
 				break;
-			//显示用户
-			case '3':
-				//String temp
-				
-				break;
 			//注销
-			case '4': 
+			case '3': 
 				String temp4 = request.getParameter("userId");
 				Boolean loginOut = userManage.logout(Integer.valueOf(temp4));
 				out.write(loginOut.toString());
 				break;
 			//修改
-			case '5': 
+			case '4': 
 				String temp5 = request.getParameter("user");
 				User user5 = JSON.parseObject(temp5,User.class);
 				Boolean modify = userManage.modify(user5);

@@ -9,7 +9,7 @@ import tell.server.model.User;
 public class UserDaoImpl implements UserDao{
 
 	@Override
-	public Boolean exist(User user) {
+	public User exist(User user) {
 		// TODO Auto-generated method stub
 		Session session = null;
 		User temp  = null;
@@ -21,16 +21,16 @@ public class UserDaoImpl implements UserDao{
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			return false;
+			return null;
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
 		}
 		
 		if(temp==null||!temp.getPassword().equals(user.getPassword())){
-			return false;
+			return null;
 		}
-		return true;
+		return new User(temp);
 	}
 
 	@Override

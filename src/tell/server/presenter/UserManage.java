@@ -16,8 +16,8 @@ public class UserManage {
 		return true;
 	}
 	
-	public boolean login(User user){
-		boolean ret = false;
+	public User login(User user){
+		User ret = null;
 		UserDao userDao = new UserDaoImpl();
 		ret = userDao.exist(user);
 		return ret;

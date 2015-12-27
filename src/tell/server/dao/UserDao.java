@@ -4,7 +4,7 @@ import tell.server.model.User;
 public interface UserDao {
 	
 	//判断是否存在该用户
-	public Boolean exist(User user);
+	public User exist(User user);
 	
 	public void addUser(User user);
 	
