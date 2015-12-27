@@ -267,7 +267,7 @@ public class TellServlet extends HttpServlet {
 							out.write("false");
 						}
 						else{
-							String actsString = JSON.toJSONString(acts3);
+							String actsString = set2json(acts3);
 							out.write(actsString);
 						}
 					break;
@@ -320,4 +320,19 @@ public class TellServlet extends HttpServlet {
 		out.flush();
 		out.close();
 	}
+	
+	 private static String set2json(Set<?> set) {  
+	        StringBuilder json = new StringBuilder();  
+	        json.append("[");  
+	        if (set != null && set.size() > 0) {  
+	            for (Object obj : set) {  
+	                json.append(JSON.toJSONString(obj));  
+	                json.append(",");  
+	            }  
+	            json.setCharAt(json.length() - 1, ']');  
+	        } else {  
+	            json.append("]");  
+	        }  
+	        return json.toString();  
+	    }  
 }

@@ -44,7 +44,7 @@ public class HiberSessionFactory {
 		try {
 	 		Configuration configuration = new Configuration().configure();
 		    sessionFactory = configuration.buildSessionFactory();
-			sessionFactory = configuration.buildSessionFactory();
+			//sessionFactory = configuration.buildSessionFactory();
 		} catch (Exception e) {
 			System.err.println("%%%% Error Creating SessionFactory %%%%");
 			e.printStackTrace();
