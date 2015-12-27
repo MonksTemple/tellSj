@@ -64,19 +64,36 @@ public class TellServlet extends HttpServlet {
 		switch(type){
 		    //登陆 
 			case '1':
-				String temp = request.getParameter("user");
-				User  user = JSON.parseObject(temp, User.class);
-				Boolean login = userManage.login(user);
+				String temp1 = request.getParameter("user");
+				User  user1 = JSON.parseObject(temp1, User.class);
+				Boolean login = userManage.login(user1);
 				out.write(login.toString());
 				break;
 		    //注册
-			case '2': break;
+			case '2': 
+				String temp2 = request.getParameter("user");
+				User user2 = JSON.parseObject(temp2,User.class);
+				Boolean register = userManage.register(user2);
+				out.write(register.toString());
+				break;
 			//显示用户
-			case '3': break;
+			case '3':
+				//String temp
+				
+				break;
 			//注销
-			case '4': break;
+			case '4': 
+				String temp4 = request.getParameter("userId");
+				Boolean loginOut = userManage.logout(Integer.valueOf(temp4));
+				out.write(loginOut.toString());
+				break;
 			//修改
-			case '5': break;
+			case '5': 
+				String temp5 = request.getParameter("user");
+				User user5 = JSON.parseObject(temp5,User.class);
+				Boolean modify = userManage.modify(user5);
+				out.write(modify.toString());
+				break;
 		}
 		out.flush();
 		out.close();

@@ -18,7 +18,10 @@
 		<property name="hibernate.show_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
 		
-
+		<property name="c3p0.min_size">5</property> 
+		<property name="c3p0.max_size">30</property> 
+		<property name="c3p0.time_out">1800</property> 
+		<property name="c3p0.max_statement">50</property> 
 		
 		<mapping resource="tell/server/model/user.hbm.xml"/>
 		<mapping resource="tell/server/model/notification.hbm.xml"/>
