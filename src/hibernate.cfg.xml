@@ -7,15 +7,18 @@
 	    <!-- 驱动 -->  
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<!-- 数据库URL --> 
-		<property name="hibernate.connection.url">jdbc:mysql://121.42.215.215:3306/sjDatabase</property>
+		<property name="hibernate.connection.url">jdbc:mysql://121.42.215.215:3306/sjDatabase?useUnicode=true&amp;characterEncoding=utf8</property>
 		<!-- 数据库用户名 -->  
 		<property name="hibernate.connection.username">yearsj</property>
 		<!-- 数据库密码 --> 
 		<property name="hibernate.connection.password">yearsj</property>
 		<!-- mysql的方言 -->  
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!--  <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>-->
+		<property name="hibernate.dialect">tell.server.hiberUtil.CustomMysqlDialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
+		
+
 		
 		<mapping resource="tell/server/model/user.hbm.xml"/>
 		<mapping resource="tell/server/model/notification.hbm.xml"/>

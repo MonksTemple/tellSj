@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao{
 		    HiberSessionFactory.closeSession();
 		}
 		
-		if(!temp.getPassword().equals(user.getPassword())){
+		if(temp==null||!temp.getPassword().equals(user.getPassword())){
 			return false;
 		}
 		return true;
