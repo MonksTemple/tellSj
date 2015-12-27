@@ -129,13 +129,18 @@ public class TeamDaoImpl implements TeamDao{
 	public Set<User> getMembers(int tId) {
 		// TODO Auto-generated method stub
 		Set<User> members = null;
+		Set<User> tempMembers = null;
 		Session session = null;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
 			Team team = (Team) session.load(Team.class,tId);
 			if(team != null){
-				members = team.getMembers();
+				tempMembers = team.getMembers();
+				members = new HashSet<User>();
+				for(User user:tempMembers){
+					members.add(new User(user));
+				}
 			}
 			session.getTransaction().commit();
 		}
@@ -177,13 +182,18 @@ public class TeamDaoImpl implements TeamDao{
 	public Set<Team> getTeams(int userId) {
 		// TODO Auto-generated method stub
 		Set<Team> teams = null;
+		Set<Team> tempTeams = null;
 		Session session = null;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
 			User user = (User) session.load(Team.class,userId);
 			if(user != null){
-				teams = user.getcTeams();
+				teams = new HashSet<Team>();
+				tempTeams = user.getcTeams();
+				for(Team team: tempTeams){
+					teams.add(new Team(team));
+				}
 			}
 			session.getTransaction().commit();
 		}
@@ -210,7 +220,11 @@ public class TeamDaoImpl implements TeamDao{
 			query.executeUpdate();
 			
 			teams = new HashSet<Team>();
-			teams.addAll((List<Team>)query.list());
+			for(Team team:(List<Team>)query.list()){
+				teams.add(new Team(team));
+			}
+//			teams.addAll((List<Team>)query.list());
+			
 			session.getTransaction().commit();
 		}catch(Exception e){
 			e.printStackTrace();

@@ -22,6 +22,10 @@ public class User {
 		this.userName = user.getUserName();
 		this.password = user.getPassword();
 		this.phoneno = user.getPhoneno();
+		this.notifications = null;
+		this.cTeams = null;
+		this.activities = null;
+		this.jTeams = null;
 	}
 	
 	public int getUserId() {

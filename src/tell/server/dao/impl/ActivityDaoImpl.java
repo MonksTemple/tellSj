@@ -136,13 +136,18 @@ public class ActivityDaoImpl implements ActivityDao{
 	public Set<User> getParticipants(int aId) {
 		// TODO Auto-generated method stub
 		Set<User> participants = null;
+		Set<User> tempUsers = null;
 		Session session = null;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
 			Activity activity = (Activity) session.load(Activity.class,aId);
 			if(activity != null){
-				participants = activity.getParticipants();
+				participants = new HashSet<User>();
+				tempUsers = activity.getParticipants();
+				for(User user:tempUsers){
+					participants.add(new User(user));
+				}
 			}
 			session.getTransaction().commit();
 		}
@@ -184,13 +189,18 @@ public class ActivityDaoImpl implements ActivityDao{
 	public Set<Activity> getActivites(int userId) {
 		// TODO Auto-generated method stub
 		Set<Activity> activites = null;
+		Set<Activity> tempActs = null;
 		Session session = null;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
 			User user = (User) session.load(Team.class,userId);
 			if(user != null){
-				activites = user.getActivities();
+				activites = new HashSet<Activity>();
+				tempActs = user.getActivities();
+				for(Activity act:tempActs){
+					activites.add(new Activity(act));
+				}
 			}
 			session.getTransaction().commit();
 		}
@@ -208,13 +218,18 @@ public class ActivityDaoImpl implements ActivityDao{
 	public Set<Activity> getActivities(int tId) {
 		// TODO Auto-generated method stub
 		Set<Activity> activities = null;
+		Set<Activity> tempActs = null;
 		Session session = null;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
 			Team team = (Team) session.load(Team.class,tId);
 			if(team != null){
-				activities = team.getActivities();
+				tempActs = team.getActivities();
+				activities = new HashSet<Activity>();
+				for(Activity act:tempActs){
+					activities.add(new Activity(act));
+				}
 			}
 			session.getTransaction().commit();
 		}
@@ -229,18 +244,18 @@ public class ActivityDaoImpl implements ActivityDao{
 	}
 
 	public Set<Activity> getIsolateActivites() {
-		Set<Activity> activites = new HashSet();
+		Set<Activity> activites = null;
 		Session session = null;
 		try{
 			session = HiberSessionFactory.getSession();  
 			session.getTransaction().begin();
 			String hql="from Activity where type =4";
 			Query query=session.createQuery(hql);
+
+			activites = new HashSet<Activity>();
 			for(Activity act:(List<Activity>)query.list()){
-				Activity temp = new Activity(act);
-				activites.add(temp);
+				activites.add(new Activity(act));
 			}
-//			activites = new HashSet<Activity>(query.list());
 			session.getTransaction().commit();
 		}
 		catch(Exception e){

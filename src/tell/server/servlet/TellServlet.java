@@ -161,8 +161,8 @@ public class TellServlet extends HttpServlet {
 			case '5':
 				Set<Team> teams =teamManage.ShowTeamList();
 				if(teams !=null){
-					String teamsString = JSON.toJSONString(teams);
-					out.write(teamsString);	
+					JSONArray jsonArray = JSONArray.fromObject(teams);
+					out.write(jsonArray.toString());	
 				}
 				else{
 					out.write("false");
@@ -187,8 +187,8 @@ public class TellServlet extends HttpServlet {
 				int tId4 = Integer.valueOf(request.getParameter("tId"));
 				Set<User> users = teamManage.showMemberList(tId4);
 				if(users != null){
-					String usersString = JSON.toJSONString(users);
-					out.write(usersString);	
+					JSONArray jsonArray = JSONArray.fromObject(users);
+					out.write(jsonArray.toString());	
 				}
 				else{
 					out.write("false");
@@ -244,8 +244,8 @@ public class TellServlet extends HttpServlet {
 					out.write("false");
 				}
 				else{
-					String actsString = JSON.toJSONString(acts1);
-					out.write(actsString);
+					JSONArray jsonArray = JSONArray.fromObject(acts1);
+					out.write(jsonArray.toString());
 				}
 				break;
 
@@ -257,8 +257,8 @@ public class TellServlet extends HttpServlet {
 						out.write("false");
 					}
 					else{
-						String actsString = JSON.toJSONString(acts2);
-						out.write(actsString);
+						JSONArray jsonArray = JSONArray.fromObject(acts2);
+						out.write(jsonArray.toString());
 					}
 				break;
 
@@ -283,8 +283,8 @@ public class TellServlet extends HttpServlet {
 							out.write("false");
 						}
 						else{
-							String actsString = JSON.toJSONString(users);
-							out.write(actsString);
+							JSONArray jsonArray = JSONArray.fromObject(users);
+							out.write(jsonArray.toString());
 						}
 					break;
 		}
@@ -323,19 +323,4 @@ public class TellServlet extends HttpServlet {
 		out.flush();
 		out.close();
 	}
-	
-	 private static String set2json(Set<?> set) {  
-	        StringBuilder json = new StringBuilder();  
-	        json.append("[");  
-	        if (set != null && set.size() > 0) {  
-	            for (Object obj : set) {  
-	                json.append(JSON.toJSONString(obj));  
-	                json.append(",");  
-	            }  
-	            json.setCharAt(json.length() - 1, ']');  
-	        } else {  
-	            json.append("]");  
-	        }  
-	        return json.toString();  
-	    }  
 }

@@ -1,4 +1,5 @@
 package tell.server.dao.impl;
+import java.util.HashSet;
 import java.util.Set;
 
 import org.hibernate.Query;
@@ -60,13 +61,18 @@ public class NotificationDaoImpl implements NotificationDao{
 	public Set<Notification> getNotifications(int userId) {
 		// TODO Auto-generated method stub
 		Set<Notification> nofitications = null;
+		Set<Notification> tempNofs = null;
 		Session session = null;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
 			User user = (User) session.load(User.class, userId);
 			if(user != null){
-			   nofitications = user.getNotifications();
+				nofitications = new HashSet<Notification>();
+				tempNofs = user.getNotifications();
+				for(Notification not:tempNofs){
+					nofitications.add(new Notification(not));
+				}
 			}
 			session.getTransaction().commit();
 		}

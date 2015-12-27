@@ -22,6 +22,7 @@ public class Team {
 		this.description = team.getDescription();
 		this.type = team.getType();
 		this.cno = team.getCno();
+		this.creator = new User(team.getCreator());
 	}
 	
 	public int gettId() {

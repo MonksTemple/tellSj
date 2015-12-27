@@ -16,6 +16,7 @@ public class Notification {
 		this.nId = notification.getnId();
 		this.description = notification.getDescription();
 		this.state = notification.getState();
+		this.user = new User(notification.getUser());
 	}
 	
 	public String getDescription() {

@@ -29,6 +29,8 @@ public class Activity {
 		this.place = activity.getPlace();
 		this.remindTime = activity.getRemindTime();
 		this.type = activity.getType();
+		this.team = new Team(activity.getTeam());
+		this.participants = null;
 	}
 	
 	public int getaId() {
