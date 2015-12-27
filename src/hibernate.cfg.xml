@@ -19,7 +19,7 @@
 		<property name="hbm2ddl.auto">update</property>
 		
 		<property name="c3p0.min_size">5</property> 
-		<property name="c3p0.max_size">30</property> 
+		<property name="c3p0.max_size">10</property> 
 		<property name="c3p0.time_out">1800</property> 
 		<property name="c3p0.max_statement">50</property> 
 		

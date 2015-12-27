@@ -29,7 +29,7 @@ public class NotificationDaoImpl implements NotificationDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}
 		
 		return flag;
@@ -51,7 +51,7 @@ public class NotificationDaoImpl implements NotificationDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}
 		
 		return flag;
@@ -80,7 +80,7 @@ public class NotificationDaoImpl implements NotificationDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();	
+			//HiberSessionFactory.closeSession();	
 		}
 		
 		return nofitications;
@@ -104,7 +104,7 @@ public class NotificationDaoImpl implements NotificationDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();
+			//HiberSessionFactory.closeSession();
 		}
 		
 		return flag;
