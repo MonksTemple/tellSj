@@ -3,13 +3,10 @@ package tell.server.dao.impl;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
-
 import tell.server.dao.TeamDao;
 import tell.server.hiberUtil.HiberSessionFactory;
-import tell.server.model.Activity;
 import tell.server.model.Team;
 import tell.server.model.User;
 

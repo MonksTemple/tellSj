@@ -3,7 +3,6 @@ package tell.server.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
 
 import tell.server.model.Activity;
+import tell.server.model.Notification;
 import tell.server.model.Team;
 import tell.server.model.User;
 import tell.server.presenter.ActivityManage;
+import tell.server.presenter.NotificationManage;
 import tell.server.presenter.TeamManage;
 import tell.server.presenter.UserManage;
 
@@ -52,11 +53,11 @@ public class TellServlet extends HttpServlet {
 		switch(type.charAt(0)){
 			case '0':userOperation(type.charAt(1),request,response);
 				break;
-			case '1': 
+			case '1': teamOperation(type.charAt(1),request,response);
 				break;
 			case '2': acitvityOperation(type.charAt(1),request,response);
 				break;
-			case '3': 
+			case '3': notificationOperation(type.charAt(1),request,response);
 				break;
 		}
 	}
@@ -112,21 +113,86 @@ public class TellServlet extends HttpServlet {
 			case '1':
 				String temp1 = request.getParameter("team");
 				Team  team1 = JSON.parseObject(temp1, Team.class);
-				teamManage.createTeam(team1);
-				out.write("true");			
+				if(teamManage.createTeam(team1)){
+					out.write("true");
+				}
+				else{
+					out.write("false");
+				}
+						
 				break;
 		    //添加成员
 			case '2': 
 			    int tId = Integer.valueOf(request.getParameter("tId"));
 			    int userId = Integer.valueOf(request.getParameter("userId"));
-				teamManage.addMember(tId, userId);
-				out.write("true");
+				if(teamManage.addMember(tId, userId)){
+					out.write("true");
+				}
+				else{
+					out.write("false");
+				}
 				break;
+			//修改信息
 			case '3':
-//				String temp4 = request.getParameter("userId");
-//				Boolean loginOut = teamManage.logout(Integer.valueOf(temp4));
-//				out.write(loginOut.toString());
+				String temp2 = request.getParameter("team");
+				Team  team2 = JSON.parseObject(temp2, Team.class);
+				if(teamManage.modifyInfo(team2)){
+					out.write("true");	
+				}
+				else{
+					out.write("false");
+				}
+				
 				break;
+			//修改信息
+			case '4':
+				int tId2 = Integer.valueOf(request.getParameter("tId"));
+				if(teamManage.deleteTeam(tId2)){
+					out.write("true");	
+				}
+				else{
+					out.write("false");
+				}
+				
+				break;
+			//返回团队列表
+			case '5':
+				Set<Team> teams =teamManage.ShowTeamList();
+				if(teams !=null){
+					String teamsString = JSON.toJSONString(teams);
+					out.write(teamsString);	
+				}
+				else{
+					out.write("false");
+				}
+				
+				break;
+				
+			//删除用户
+			case '6':
+				int tId3 = Integer.valueOf(request.getParameter("tId"));
+				int userId2 = Integer.valueOf(request.getParameter("userId"));
+				if(teamManage.deleteMember(tId3, userId2)){
+					out.write("true");	
+				}
+				else{
+					out.write("false");
+				}
+				
+				break;	
+			//删除用户
+			case '7':
+				int tId4 = Integer.valueOf(request.getParameter("tId"));
+				Set<User> users = teamManage.showMemberList(tId4);
+				if(users != null){
+					String usersString = JSON.toJSONString(users);
+					out.write(usersString);	
+				}
+				else{
+					out.write("false");
+				}
+				
+				break;		
 		}
 		out.flush();
 		out.close();
@@ -224,6 +290,34 @@ public class TellServlet extends HttpServlet {
 	}
 	
 	private void  notificationOperation(char type, HttpServletRequest request,HttpServletResponse response) throws IOException{
+		PrintWriter out = response.getWriter();
+		NotificationManage notificationManage = new NotificationManage();
+		switch(type){
+		//添加通知
+		case '1':
+			String temp = request.getParameter("notification");
+			Notification notification = JSON.parseObject(temp, Notification.class);
+			if(notificationManage.addNotification(notification)){
+			     out.write("true");
+			}
+			else{
+				out.write("false");
+			}
+			break;
 		
+		//修改通知
+		case '2':
+			String temp2 = request.getParameter("notification");
+			Notification notification2 = JSON.parseObject(temp2, Notification.class);
+			if(notificationManage.updateNotification(notification2)){
+			     out.write("true");
+			}
+			else{
+				out.write("false");
+			}
+			break;
+		}
+		out.flush();
+		out.close();
 	}
 }
