@@ -14,9 +14,10 @@ import tell.server.model.User;
 public class ActivityDaoImpl implements ActivityDao{
 
 	@Override
-	public void addActivity(Activity activity) {
+	public Boolean addActivity(Activity activity) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
@@ -24,17 +25,21 @@ public class ActivityDaoImpl implements ActivityDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
-		}		
+		}	
+		
+		return flag;
 	}
 
 	@Override
-	public void updateActivity(Activity activity) {
+	public Boolean updateActivity(Activity activity) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
@@ -42,17 +47,21 @@ public class ActivityDaoImpl implements ActivityDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
 		}	
+		
+		return flag;
 	}
 
 	@Override
-	public void deleteActivity(int aId) {
+	public Boolean deleteActivity(int aId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction(); 
@@ -61,17 +70,22 @@ public class ActivityDaoImpl implements ActivityDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
-		}	
+		}
+		
+		return flag;
 	}
 
 	@Override
-	public void deleteParticipant(int aId, int userId) {
+	public Boolean deleteParticipant(int aId, int userId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
+		
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction(); 
@@ -81,17 +95,22 @@ public class ActivityDaoImpl implements ActivityDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag =false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
-		}		
+		}
+		
+		return flag;
 	}
 
 	@Override
-	public void addParticipant(int aId, int userId) {
+	public Boolean addParticipant(int aId, int userId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
+		
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction(); 
@@ -101,11 +120,14 @@ public class ActivityDaoImpl implements ActivityDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
-		}			
+		}	
+		
+		return flag;
 	}
 	
 	@Override
@@ -134,9 +156,10 @@ public class ActivityDaoImpl implements ActivityDao{
 
 	
 	@Override
-	public void deleteActivites(int tId) {
+	public Boolean deleteActivites(int tId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession();  
 			session.getTransaction().begin();
@@ -145,11 +168,14 @@ public class ActivityDaoImpl implements ActivityDao{
 			query.executeUpdate();
 			session.getTransaction().commit();
 		}catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 			HiberSessionFactory.closeSession();
 		}	
+		
+		return flag;
 	}
 
 	@Override

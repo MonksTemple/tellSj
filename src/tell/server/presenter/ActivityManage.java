@@ -7,21 +7,21 @@ import tell.server.dao.impl.ActivityDaoImpl;
 import tell.server.model.Activity;
 import tell.server.model.User;
 
-public class ActivityManager {
+public class ActivityManage {
 	
-	public void addActivity(Activity activity){
+	public Boolean addActivity(Activity activity){
 		ActivityDao activityDao = new ActivityDaoImpl();
-		activityDao.addActivity(activity);
+		return activityDao.addActivity(activity);
 	}
 	
-	public void modifyActivity(Activity activity){
+	public Boolean modifyActivity(Activity activity){
 		ActivityDao activityDao = new ActivityDaoImpl();
-		activityDao.updateActivity(activity);
+		return activityDao.updateActivity(activity);
 	}
 	
-	public void deleteActivity(int aId){
+	public Boolean deleteActivity(int aId){
 		ActivityDao activityDao = new ActivityDaoImpl();
-		activityDao.deleteActivity(aId);
+		return activityDao.deleteActivity(aId);
 		
 	}
 	

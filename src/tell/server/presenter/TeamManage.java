@@ -13,24 +13,24 @@ import tell.server.model.*;
 
 public class TeamManage {
 
-	public void createTeam(Team team){
+	public Boolean createTeam(Team team){
 		TeamDao teamDao = new TeamDaoImpl();
-		teamDao.addTeam(team);
+		return teamDao.addTeam(team);
 	}
-	public void addMember(int tId,int userId){
+	public Boolean addMember(int tId,int userId){
 		TeamDao teamDao = new TeamDaoImpl();
-		teamDao.addMember(tId, userId);
+		return teamDao.addMember(tId, userId);
 	}
 	
-	public void modifyInfo(Team team){
+	public Boolean modifyInfo(Team team){
 		TeamDao teamDao = new TeamDaoImpl();
-		teamDao.updateTeam(team);
+		return teamDao.updateTeam(team);
 	}
-	public void deleteTeam(int tId){
+	public Boolean deleteTeam(int tId){
 		TeamDao teamDao = new TeamDaoImpl();
 		ActivityDao activityDao = new ActivityDaoImpl();
 		activityDao.deleteActivites(tId);
-		teamDao.deleteTeam(tId);
+		return teamDao.deleteTeam(tId);
 		
 	}
 	public Set<Team> ShowTeamList(){ 
@@ -38,9 +38,9 @@ public class TeamManage {
 		return teamDao.getAllTeams();
 		
 	}
-	public void deleteMember(int tId,int userId){
+	public Boolean deleteMember(int tId,int userId){
 		TeamDao teamDao = new TeamDaoImpl();
-		teamDao.deleteMember(tId, userId);
+		return teamDao.deleteMember(tId, userId);
 	}
 	public Set<User> showMemberList(int tId){
 		TeamDao teamDao = new TeamDaoImpl();

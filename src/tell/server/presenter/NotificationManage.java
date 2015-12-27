@@ -8,13 +8,13 @@ import tell.server.model.Notification;
 
 public class NotificationManage {
 
-	public void addNotification(Notification notification) {
+	public Boolean addNotification(Notification notification) {
 		NotificationDao notificationDao = new NotificationDaoImpl();
-		notificationDao.addNotification(notification);
+		return notificationDao.addNotification(notification);
 		
 	}
 	
-	public void updateNotification(Notification notification) {
+	public Boolean updateNotification(Notification notification) {
 		NotificationDao notificationDao = new NotificationDaoImpl();
 		notificationDao.updateNotification(notification);
 		String str = notification.getDescription();
@@ -28,5 +28,7 @@ public class NotificationManage {
 			}
 
 		}
+		
+		return true;
 	}
 }

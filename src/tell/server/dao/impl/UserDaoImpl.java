@@ -34,9 +34,11 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public void addUser(User user) {
+	public Boolean addUser(User user) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
+		
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
@@ -44,17 +46,22 @@ public class UserDaoImpl implements UserDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
 		}				
+		
+		return flag;
 	}
 
 	@Override
-	public void updateUser(User user) {
+	public Boolean updateUser(User user) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
+		
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
@@ -62,17 +69,22 @@ public class UserDaoImpl implements UserDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
 		}			
+		
+		return flag;
 	}
 
 	@Override
-	public void deleteUser(int userId) {
+	public Boolean deleteUser(int userId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
+		
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
@@ -81,11 +93,14 @@ public class UserDaoImpl implements UserDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag =false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
 		}		
+		
+		return flag;
 	}
 
 }

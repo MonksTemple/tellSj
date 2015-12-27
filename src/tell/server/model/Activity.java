@@ -16,6 +16,21 @@ public class Activity {
 	private int type;              //活动类型，Type为1的时候为团队活动，type为2的时候为任务，type3 是个人活动，type4是单独的活动
 	private Set participants;      //活动的所有参与者
 	
+	public Activity(){
+		
+	}
+	
+	public Activity(Activity activity){
+		this.aId = activity.getaId();
+		this.name = activity.getName();
+		this.description = activity.getDescription();
+		this.startTime = activity.getStartTime();
+		this.endTime = activity.getEndTime();
+		this.place = activity.getPlace();
+		this.remindTime = activity.getRemindTime();
+		this.type = activity.getType();
+	}
+	
 	public int getaId() {
 		return aId;
 	}

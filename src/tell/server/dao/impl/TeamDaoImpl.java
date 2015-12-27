@@ -16,9 +16,10 @@ import tell.server.model.User;
 public class TeamDaoImpl implements TeamDao{
 
 	@Override
-	public void addTeam(Team team) {
+	public Boolean addTeam(Team team) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
@@ -26,17 +27,20 @@ public class TeamDaoImpl implements TeamDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
-		}		
+		}
+		return flag;
 	}
 
 	@Override
-	public void updateTeam(Team team) {
+	public Boolean updateTeam(Team team) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
@@ -44,17 +48,21 @@ public class TeamDaoImpl implements TeamDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
-		}		
+		}	
+		
+		return flag;
 	}
 
 	@Override
-	public void deleteTeam(int tId) {
+	public Boolean deleteTeam(int tId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction(); 
@@ -63,17 +71,21 @@ public class TeamDaoImpl implements TeamDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
 		}	
+		
+		return flag;
 	}
 
 	@Override
-	public void deleteMember(int tId, int userId) {
+	public Boolean deleteMember(int tId, int userId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction(); 
@@ -83,17 +95,21 @@ public class TeamDaoImpl implements TeamDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
-		}		
+		}	
+		
+		return flag;
 	}
 
 	@Override
-	public void addMember(int tId, int userId) {
+	public Boolean addMember(int tId, int userId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction(); 
@@ -103,11 +119,13 @@ public class TeamDaoImpl implements TeamDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
-		}			
+		}	
+		return flag;
 	}
 
 	@Override
@@ -136,9 +154,10 @@ public class TeamDaoImpl implements TeamDao{
 
 
 	@Override
-	public void deleteTeams(int userId) {
+	public Boolean deleteTeams(int userId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession();  
 			session.getTransaction().begin();
@@ -147,11 +166,14 @@ public class TeamDaoImpl implements TeamDao{
 			query.executeUpdate();
 			session.getTransaction().commit();
 		}catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 			HiberSessionFactory.closeSession();
 		}	
+		
+		return flag;
 	}
 
 	@Override

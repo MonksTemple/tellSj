@@ -8,6 +8,16 @@ public class Notification {
 	private boolean state;           //是否已经阅读，0表示未读，1表示已读
 	private User user;           //用户
 	
+	public Notification(){
+		
+	}
+	
+	public Notification(Notification notification){
+		this.nId = notification.getnId();
+		this.description = notification.getDescription();
+		this.state = notification.getState();
+	}
+	
 	public String getDescription() {
 		return description;
 	}

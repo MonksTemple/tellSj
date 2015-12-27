@@ -12,9 +12,11 @@ import tell.server.model.User;
 public class NotificationDaoImpl implements NotificationDao{
 
 	@Override
-	public void addNotification(Notification notification) {
+	public Boolean addNotification(Notification notification) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
+		
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
@@ -22,17 +24,21 @@ public class NotificationDaoImpl implements NotificationDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
 		}
+		
+		return flag;
 	}
 
 	@Override
-	public void updateNotification(Notification notification) {
+	public Boolean updateNotification(Notification notification) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
@@ -40,11 +46,14 @@ public class NotificationDaoImpl implements NotificationDao{
 			session.getTransaction().commit();
 		}
 		catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 		    HiberSessionFactory.closeSession();
 		}
+		
+		return flag;
 	}
 
 	@Override
@@ -72,21 +81,26 @@ public class NotificationDaoImpl implements NotificationDao{
 	}
 
 	@Override
-	public void deleteNotifications(int userId) {
+	public Boolean deleteNotifications(int userId) {
 		// TODO Auto-generated method stub
 		Session session = null;
+		Boolean flag = true;
+		
 		try{
-		session = HiberSessionFactory.getSession();  
-		session.getTransaction().begin();
-		String hql="delete from Notification where userId="+userId;
-		Query query=session.createQuery(hql);
-		query.executeUpdate();
-		session.getTransaction().commit();
+			session = HiberSessionFactory.getSession();  
+			session.getTransaction().begin();
+			String hql="delete from Notification where userId="+userId;
+			Query query=session.createQuery(hql);
+			query.executeUpdate();
+			session.getTransaction().commit();
 		}catch(Exception e){
+			flag = false;
 			e.printStackTrace();
 		}
 		finally{
 			HiberSessionFactory.closeSession();
 		}
+		
+		return flag;
 	}
 }
