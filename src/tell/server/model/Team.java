@@ -7,7 +7,6 @@ import java.util.Set;
  */
 public class Team {
 
-<<<<<<< HEAD
 	/**ÍÅ¶Ó±àºÅ*/
 	private int tId;           
 	/**ÍÅ¶ÓÃû³Æ*/
@@ -24,16 +23,6 @@ public class Team {
 	private Set activities;     
 	/**¸ÃÍÅ¶ÓËùÓÐµÄ³ÉÔ±*/
 	private Set members;         
-=======
-	private int tId;             //ï¿½Å¶Ó±ï¿½ï¿½
-	private String name;         //ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½
-	private String description;  //ï¿½Å¶Ó¼ï¿½ï¿½
-	private int type;            //ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½,TypeÎª1ï¿½ï¿½Ê±ï¿½ï¿½Îªï¿½Å¶ï¿½ï¿½é£¬typeÎª2ï¿½ï¿½Ê±ï¿½ï¿½Îªï¿½Î³ï¿½ï¿½ï¿½
-	private int cno;             //ï¿½Î³ï¿½id
-	private User creator;        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-	private Set activities;      //ï¿½ï¿½ï¿½Å¶Ó´ï¿½ï¿½ï¿½ï¿½Ä»î¶¯
-	private Set members;         //ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ÐµÄ³ï¿½Ô±
->>>>>>> 41bffe7798858c974e9d8a28138fce5dbd015d9a
 	
 	
 	/**
