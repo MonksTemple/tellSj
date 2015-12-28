@@ -14,7 +14,14 @@ public class Team {
 	private Set members;         //���Ŷ����еĳ�Ա
 	
 	
-	public Team(){}
+	public Team(){
+		this.tId = 0;
+		this.name = "";
+		this.description = "";
+		this.type = 0;
+		this.cno = 0;
+		this.creator = null;
+	}
 	
 	public Team(Team team){
 		this.tId = team.gettId();

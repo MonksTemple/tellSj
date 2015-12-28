@@ -28,7 +28,7 @@ public class TeamDaoImpl implements TeamDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}
 		return flag;
 	}
@@ -49,7 +49,7 @@ public class TeamDaoImpl implements TeamDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}	
 		
 		return flag;
@@ -72,7 +72,7 @@ public class TeamDaoImpl implements TeamDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}	
 		
 		return flag;
@@ -96,7 +96,7 @@ public class TeamDaoImpl implements TeamDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}	
 		
 		return flag;
@@ -120,7 +120,7 @@ public class TeamDaoImpl implements TeamDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}	
 		return flag;
 	}
@@ -148,7 +148,7 @@ public class TeamDaoImpl implements TeamDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();	
+			//HiberSessionFactory.closeSession();	
 		}
 		
 		return members;	
@@ -172,7 +172,7 @@ public class TeamDaoImpl implements TeamDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();
+			//HiberSessionFactory.closeSession();
 		}	
 		
 		return flag;
@@ -201,7 +201,7 @@ public class TeamDaoImpl implements TeamDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();	
+			//HiberSessionFactory.closeSession();	
 		}
 		
 		return teams;	
@@ -230,7 +230,7 @@ public class TeamDaoImpl implements TeamDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();
+			//HiberSessionFactory.closeSession();
 		}	
 		
 		return teams;

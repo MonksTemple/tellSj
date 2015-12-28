@@ -31,7 +31,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}	
 		
 		return flag;
@@ -53,7 +53,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}	
 		
 		return flag;
@@ -76,7 +76,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}
 		
 		return flag;
@@ -101,7 +101,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}
 		
 		return flag;
@@ -126,7 +126,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}	
 		
 		return flag;
@@ -155,7 +155,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();	
+			//HiberSessionFactory.closeSession();	
 		}
 		
 		return participants;	
@@ -179,7 +179,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();
+			//HiberSessionFactory.closeSession();
 		}	
 		
 		return flag;
@@ -194,7 +194,7 @@ public class ActivityDaoImpl implements ActivityDao{
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
-			User user = (User) session.load(Team.class,userId);
+			User user = (User) session.load(User.class,userId);
 			if(user != null){
 				activites = new HashSet<Activity>();
 				tempActs = user.getActivities();
@@ -208,7 +208,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();	
+			//HiberSessionFactory.closeSession();	
 		}
 		
 		return activites;	
@@ -237,7 +237,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();	
+			//HiberSessionFactory.closeSession();	
 		}
 		
 		return activities;	
@@ -262,7 +262,7 @@ public class ActivityDaoImpl implements ActivityDao{
 			e.printStackTrace();
 		}
 		finally{
-			HiberSessionFactory.closeSession();	
+			//HiberSessionFactory.closeSession();	
 		}
 		
 		return activites;	

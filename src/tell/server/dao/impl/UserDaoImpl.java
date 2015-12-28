@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao{
 			return null;
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}
 		
 		if(temp==null||!temp.getPassword().equals(user.getPassword())){
@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}				
 		
 		return flag;
@@ -73,7 +73,7 @@ public class UserDaoImpl implements UserDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}			
 		
 		return flag;
@@ -97,7 +97,7 @@ public class UserDaoImpl implements UserDao{
 			e.printStackTrace();
 		}
 		finally{
-		    HiberSessionFactory.closeSession();
+		    //HiberSessionFactory.closeSession();
 		}		
 		
 		return flag;

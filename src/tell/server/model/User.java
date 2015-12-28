@@ -14,7 +14,14 @@ public class User {
 	private Set jTeams = new HashSet();         //该用户加入的所有的团队
 	
 	public User(){
-		
+		this.userId = 0;
+		this.userName = "";
+		this.password = "";
+		this.phoneno = "";
+		this.notifications = null;
+		this.cTeams = null;
+		this.activities = null;
+		this.jTeams = null;		
 	}
 	
 	public User(User user){
