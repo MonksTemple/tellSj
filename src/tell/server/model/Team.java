@@ -4,14 +4,14 @@ import java.util.Set;
 
 public class Team {
 
-	private int tId;             //ÍÅ¶Ó±àºÅ
-	private String name;         //ÍÅ¶ÓÃû³Æ
-	private String description;  //ÍÅ¶Ó¼ò½é
-	private int type;            //ÍÅ¶ÓÀàĞÍ,TypeÎª1µÄÊ±ºòÎªÍÅ¶Ó×é£¬typeÎª2µÄÊ±ºòÎª¿Î³Ì×é
-	private int cno;             //¿Î³Ìid
-	private User creator;        //´´½¨ÈË
-	private Set activities;      //¸ÃÍÅ¶Ó´´½¨µÄ»î¶¯
-	private Set members;         //¸ÃÍÅ¶ÓËùÓĞµÄ³ÉÔ±
+	private int tId;             //ï¿½Å¶Ó±ï¿½ï¿½
+	private String name;         //ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String description;  //ï¿½Å¶Ó¼ï¿½ï¿½
+	private int type;            //ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ï¿½,TypeÎª1ï¿½ï¿½Ê±ï¿½ï¿½Îªï¿½Å¶ï¿½ï¿½é£¬typeÎª2ï¿½ï¿½Ê±ï¿½ï¿½Îªï¿½Î³ï¿½ï¿½ï¿½
+	private int cno;             //ï¿½Î³ï¿½id
+	private User creator;        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private Set activities;      //ï¿½ï¿½ï¿½Å¶Ó´ï¿½ï¿½ï¿½ï¿½Ä»î¶¯
+	private Set members;         //ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½ĞµÄ³ï¿½Ô±
 	
 	
 	public Team(){}

@@ -217,7 +217,7 @@ public class TeamDaoImpl implements TeamDao{
 			session.getTransaction().begin();
 			String hql="from Team";
 			Query query=session.createQuery(hql);
-			query.executeUpdate();
+			//query.executeUpdate();
 			
 			teams = new HashSet<Team>();
 			for(Team team:(List<Team>)query.list()){
