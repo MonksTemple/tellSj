@@ -5,11 +5,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+/**
+ * 
+ * hibernate配置生成类
+ */
 public class HiberSessionFactory {
 	
-    //private static String CONFIG_FILE_LOCATION = "/hibernate.cfg.xml";
-	private static final ThreadLocal<Session> threadLocal = new ThreadLocal<Session>();
-   // private  static Configuration configuration = new Configuration();    
+	private static final ThreadLocal<Session> threadLocal = new ThreadLocal<Session>();   
     private static SessionFactory sessionFactory;
     
 	static {
@@ -22,9 +24,17 @@ public class HiberSessionFactory {
 		}
     }
 	
+	/**
+	 * 私有的构造函数，空实现
+	 */
     private HiberSessionFactory(){}
     
-    //获取session
+    /**
+     * 
+     * 得到session
+     * @return session
+     * @throws HibernateException
+     */
     public static Session getSession() throws HibernateException {
         Session session = (Session) threadLocal.get();
 
@@ -39,7 +49,10 @@ public class HiberSessionFactory {
         return session;
     }
     
-    //重新建立session
+    /**
+     * 
+     * 重新建立session
+     */
 	public static void rebuildSessionFactory() {
 		try {
 	 		Configuration configuration = new Configuration().configure();
@@ -51,7 +64,11 @@ public class HiberSessionFactory {
 		}
 	}
     
-	//关闭session
+	/**
+	 * 
+	 * 关闭session
+	 * @throws HibernateException
+	 */
     public static void closeSession() throws HibernateException {
         Session session = (Session) threadLocal.get();
         threadLocal.set(null);

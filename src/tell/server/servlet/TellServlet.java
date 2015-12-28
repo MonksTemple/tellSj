@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSON;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
-import tell.server.dao.impl.JsonDateValueProcessor;
+import tell.server.hiberUtil.JsonDateValueProcessor;
 import tell.server.model.Activity;
 import tell.server.model.Notification;
 import tell.server.model.Team;
@@ -31,13 +31,14 @@ public class TellServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Default constructor. 
+	 * 默认构造函数 
 	 */
 	public TellServlet() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
+	 * 处理GET形式的方法
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,6 +47,7 @@ public class TellServlet extends HttpServlet {
 	}
 
 	/**
+	 * 处理POST形式的方法
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -66,6 +68,14 @@ public class TellServlet extends HttpServlet {
 		}
 	}
 
+	/**
+	 * 
+	 * 用户操作
+	 * @param type
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 */
 	private void userOperation(char type, HttpServletRequest request,HttpServletResponse response) throws IOException{
 		PrintWriter out = response.getWriter();
 		UserManage userManage = new UserManage();
@@ -109,6 +119,14 @@ public class TellServlet extends HttpServlet {
 		out.close();
 	}
 
+	/**
+	 * 
+	 * 团队处理
+	 * @param type
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 */
 	private void  teamOperation(char type, HttpServletRequest request,HttpServletResponse response) throws IOException{
 		PrintWriter out = response.getWriter();
 		TeamManage teamManage = new TeamManage();
@@ -202,6 +220,14 @@ public class TellServlet extends HttpServlet {
 		out.close();
 	}
 
+	/**
+	 * 
+	 * 活动处理
+	 * @param type
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 */
 	private void  acitvityOperation(char type, HttpServletRequest request,HttpServletResponse response) throws IOException{
 		PrintWriter out = response.getWriter();
 		ActivityManage activityManage = new ActivityManage();
@@ -299,6 +325,14 @@ public class TellServlet extends HttpServlet {
 		out.close();
 	}
 
+	/**
+	 * 
+	 * 通知处理
+	 * @param type
+	 * @param request
+	 * @param response
+	 * @throws IOException
+	 */
 	private void  notificationOperation(char type, HttpServletRequest request,HttpServletResponse response) throws IOException{
 		PrintWriter out = response.getWriter();
 		NotificationManage notificationManage = new NotificationManage();

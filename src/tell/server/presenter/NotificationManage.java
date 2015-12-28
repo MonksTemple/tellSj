@@ -6,14 +6,30 @@ import tell.server.dao.impl.NotificationDaoImpl;
 import tell.server.dao.impl.TeamDaoImpl;
 import tell.server.model.Notification;
 
+/**
+ * 
+ * 通知类处理
+ */
 public class NotificationManage {
 
+	/**
+	 * 
+	 * 添加通知信息
+	 * @param notification
+	 * @return true--添加成功，false--添加失败
+	 */
 	public Boolean addNotification(Notification notification) {
 		NotificationDao notificationDao = new NotificationDaoImpl();
 		return notificationDao.addNotification(notification);
 		
 	}
 	
+	/**
+	 * 
+	 * 修改通知信息
+	 * @param notification
+	 * @return true--修改该成功，false--修改失败
+	 */
 	public Boolean updateNotification(Notification notification) {
 		NotificationDao notificationDao = new NotificationDaoImpl();
 		notificationDao.updateNotification(notification);
