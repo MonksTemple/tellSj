@@ -17,7 +17,16 @@ public class Activity {
 	private Set participants;      //活动的所有参与者
 	
 	public Activity(){
-		
+		this.aId = 0;
+		this.name = "";
+		this.description = "";
+		this.startTime = new Date();
+		this.endTime =  new Date();
+		this.place = "";
+		this.remindTime = new Date();
+		this.type = 0;
+		this.team = null;
+		this.participants = null;
 	}
 	
 	public Activity(Activity activity){

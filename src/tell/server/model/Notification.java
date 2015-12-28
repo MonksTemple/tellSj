@@ -9,7 +9,10 @@ public class Notification {
 	private User user;           //”√ªß
 	
 	public Notification(){
-		
+		this.nId = 0;
+		this.description ="";
+		this.state = false;
+		this.user = null;
 	}
 	
 	public Notification(Notification notification){

@@ -3,7 +3,7 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="tell.server.model">
-	<class name="Activity" table="t_activity">
+	<class name="Activity" table="t_activity" dynamic-insert="true" dynamic-update="true">
 		<id name="aId">
 			<generator class="identity"></generator>
 		</id>

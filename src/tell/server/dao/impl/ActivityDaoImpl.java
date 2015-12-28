@@ -194,7 +194,7 @@ public class ActivityDaoImpl implements ActivityDao{
 		try{
 			session = HiberSessionFactory.getSession(); 
 			session.beginTransaction();  
-			User user = (User) session.load(Team.class,userId);
+			User user = (User) session.load(User.class,userId);
 			if(user != null){
 				activites = new HashSet<Activity>();
 				tempActs = user.getActivities();
