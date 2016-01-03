@@ -272,7 +272,9 @@ public class TellServlet extends HttpServlet {
 				out.write("false");
 			}
 			else{
-				JSONArray jsonArray = JSONArray.fromObject(acts1);
+				JsonConfig jsonConfig = new JsonConfig();
+				jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());
+				JSONArray jsonArray = JSONArray.fromObject( acts1,jsonConfig );  
 				out.write(jsonArray.toString());
 			}
 			break;
@@ -285,8 +287,11 @@ public class TellServlet extends HttpServlet {
 				out.write("false");
 			}
 			else{
-				JSONArray jsonArray = JSONArray.fromObject(acts2);
-				out.write(jsonArray.toString());
+				JsonConfig jsonConfig = new JsonConfig();
+				jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());
+				JSONArray jsonArray = JSONArray.fromObject( acts2,jsonConfig );  
+				String actsString = jsonArray.toString();
+				out.write(actsString);
 			}
 			break;
 
