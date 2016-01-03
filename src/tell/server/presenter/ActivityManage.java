@@ -94,4 +94,16 @@ public class ActivityManage {
 		return activityDao.getParticipants(aId);
 		
 	}
+	
+	/**
+	 * 
+	 * 显示所有的活动
+	 * @param 
+	 * @return 活动列表
+	 */
+	public Set<Activity> showActivities() {
+		ActivityDao activityDao = new ActivityDaoImpl();
+		return activityDao.getActivities();
+		
+	}
 }

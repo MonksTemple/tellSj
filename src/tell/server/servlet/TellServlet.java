@@ -317,6 +317,18 @@ public class TellServlet extends HttpServlet {
 				out.write(jsonArray.toString());
 			}
 			break;
+		case '8':
+			Set<Activity> activities = activityManage.showActivities();
+			if(activities == null){
+				out.write("false");
+			}
+			else{
+				JsonConfig jsonConfig = new JsonConfig();
+				jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());
+				JSONArray jsonArray = JSONArray.fromObject(activities,jsonConfig);
+				out.write(jsonArray.toString());
+			}
+			break;
 		}
 		out.flush();
 		out.close();

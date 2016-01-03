@@ -341,5 +341,37 @@ public class ActivityDaoImpl implements ActivityDao{
 		return activites;	
 	}
 
+	/*
+	 * 得到所有的活动
+	 * @return 
+	 * @see tell.server.dao.ActivityDao#getActivities()
+	 */
+	@Override
+	public Set<Activity> getActivities() {
+		// TODO Auto-generated method stub
+		Set<Activity> activites = null;
+		Session session = null;
+		try{
+			session = HiberSessionFactory.getSession();  
+			session.getTransaction().begin();
+			String hql="from Activity";
+			Query query=session.createQuery(hql);
+
+			activites = new HashSet<Activity>();
+			for(Activity act:(List<Activity>)query.list()){
+				activites.add(new Activity(act));
+			}
+			session.getTransaction().commit();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		finally{
+			//HiberSessionFactory.closeSession();	
+		}
+		
+		return activites;	
+	}
+
 
 }

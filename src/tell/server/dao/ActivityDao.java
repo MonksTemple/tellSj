@@ -90,4 +90,12 @@ public interface ActivityDao {
 	 * @return 活动列表
 	 */
 	public Set<Activity> getActivities(int tId);
+	
+	/**
+	 * 
+	 * 得到所有的活动
+	 * @param 
+	 * @return 活动列表
+	 */
+	public Set<Activity> getActivities();
 }
