@@ -15,14 +15,14 @@ import tell.server.model.User;
 
 /**
  * 
- * »î¶¯ÀàdaoÊµÏÖÀà
+ * ï¿½î¶¯ï¿½ï¿½daoÊµï¿½ï¿½ï¿½ï¿½
  */
 public class ActivityDaoImpl implements ActivityDao{
 
 	/*
-	 * ÏòÊý¾Ý¿âÖÐÌí¼Ó»î¶¯ÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½Ó»î¶¯ï¿½ï¿½Ï¢
 	 * @param activity
-	 * @return  true-Ìí¼Ó»î¶¯³É¹¦£¬false--Ìí¼Ó»î¶¯Ê§°Ü
+	 * @return  true-ï¿½ï¿½Ó»î¶¯ï¿½É¹ï¿½ï¿½ï¿½false--ï¿½ï¿½Ó»î¶¯Ê§ï¿½ï¿½
 	 * @see tell.server.dao.ActivityDao#addActivity(tell.server.model.Activity)
 	 */
 	@Override
@@ -49,9 +49,9 @@ public class ActivityDaoImpl implements ActivityDao{
 
 	/*
 	 * 
-	 * ÐÞ¸ÄÊý¾Ý¿âÖÐµÄ»î¶¯ÐÅÏ¢
+	 * ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ÐµÄ»î¶¯ï¿½ï¿½Ï¢
 	 * @param activity
-	 * @return true-ÐÞ¸Ä»î¶¯³É¹¦£¬false--ÐÞ¸Ä»î¶¯Ê§°Ü
+	 * @return true-ï¿½Þ¸Ä»î¶¯ï¿½É¹ï¿½ï¿½ï¿½false--ï¿½Þ¸Ä»î¶¯Ê§ï¿½ï¿½
 	 * @see tell.server.dao.ActivityDao#updateActivity(tell.server.model.Activity)
 	 */
 	@Override
@@ -78,9 +78,9 @@ public class ActivityDaoImpl implements ActivityDao{
 
 	/*
 	 * 
-	 * ´ÓÊý¾Ý¿âÖÐÉ¾³ý»î¶¯ÐÅÏ¢
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½î¶¯ï¿½ï¿½Ï¢
 	 * @param aId
-	 * @return true-É¾³ý³É¹¦£¬false-É¾³ýÊ§°Ü
+	 * @return true-É¾ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½false-É¾ï¿½ï¿½Ê§ï¿½ï¿½
 	 * @see tell.server.dao.ActivityDao#deleteActivity(int)
 	 */
 	@Override
@@ -108,10 +108,10 @@ public class ActivityDaoImpl implements ActivityDao{
 
 	/*
 	 * 
-	 * ´ÓÊý¾Ý¿âÖÐÉ¾³ý»î¶¯²ÎÓëÕß
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param aId
 	 * @param userId
-	 * @return true-É¾³ý³É¹¦£¬false-É¾³ýÊ§°Ü
+	 * @return true-É¾ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½false-É¾ï¿½ï¿½Ê§ï¿½ï¿½
 	 * @see tell.server.dao.ActivityDao#deleteParticipant(int, int)
 	 */
 	@Override
@@ -141,10 +141,10 @@ public class ActivityDaoImpl implements ActivityDao{
 
 	/*
 	 * 
-	 * ÏòÊý¾Ý¿âÖÐÌí¼Ó»î¶¯³ÉÔ±
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½Ó»î¶¯ï¿½ï¿½Ô±
 	 * @param aId
 	 * @param userId
-	 * @return true-Ìí¼Ó³É¹¦£¬false-Ìí¼ÓÊ§°Ü
+	 * @return true-ï¿½ï¿½Ó³É¹ï¿½ï¿½ï¿½false-ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
 	 * @see tell.server.dao.ActivityDao#addParticipant(int, int)
 	 */
 	@Override
@@ -174,9 +174,9 @@ public class ActivityDaoImpl implements ActivityDao{
 	
 	/*
 	 * 
-	 * ´ÓÊý¾Ý¿âÖÐ»ñµÃ»î¶¯µÄ²ÎÓëÈËÔ±
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ð»ï¿½Ã»î¶¯ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ô±
 	 * @param aId
-	 * @return »î¶¯²ÎÓëÈËÔ±ÁÐ±í
+	 * @return ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½Ð±ï¿½
 	 * @see tell.server.dao.ActivityDao#getParticipants(int)
 	 */
 	@Override
@@ -210,9 +210,9 @@ public class ActivityDaoImpl implements ActivityDao{
 
 	/*
 	 * 
-	 * ´ÓÊý¾Ý¿âÖÐÉ¾³ýÖ¸¶¨ÍÅ¶ÓµÄ»î¶¯
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Å¶ÓµÄ»î¶¯
 	 * @param tId
-	 * @return true-É¾³ý³É¹¦£¬false-É¾³ýÊ§°Ü
+	 * @return true-É¾ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½false-É¾ï¿½ï¿½Ê§ï¿½ï¿½
 	 * @see tell.server.dao.ActivityDao#deleteActivites(int)
 	 */
 	@Override
@@ -240,9 +240,9 @@ public class ActivityDaoImpl implements ActivityDao{
 
 	/*
 	 * 
-	 * ¸ù¾ÝÓÃ»§idµÃµ½¸ÃÓÃ»§²ÎÓëµÄ»î¶¯ÁÐ±í
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½idï¿½Ãµï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ä»î¶¯ï¿½Ð±ï¿½
 	 * @param userId
-	 * @return »î¶¯ÁÐ±í
+	 * @return ï¿½î¶¯ï¿½Ð±ï¿½
 	 * @see tell.server.dao.ActivityDao#getActivites(int)
 	 */
 	@Override
@@ -276,9 +276,9 @@ public class ActivityDaoImpl implements ActivityDao{
 
 	/*
 	 * 
-	 * µÃµ½ÍÅ¶Ó¾Ù°ìµÄ»î¶¯ÁÐ±í
+	 * ï¿½Ãµï¿½ï¿½Å¶Ó¾Ù°ï¿½Ä»î¶¯ï¿½Ð±ï¿½
 	 * @param tId
-	 * @return »î¶¯ÁÐ±í
+	 * @return ï¿½î¶¯ï¿½Ð±ï¿½
 	 * @see tell.server.dao.ActivityDao#getActivities(int)
 	 */
 	@Override
@@ -312,8 +312,8 @@ public class ActivityDaoImpl implements ActivityDao{
 
 	/*
 	 * 
-	 * µÃµ½µ¥ÈË»î¶¯ÁÐ±í
-	 * @return »î¶¯ÁÐ±í
+	 * ï¿½Ãµï¿½ï¿½ï¿½ï¿½Ë»î¶¯ï¿½Ð±ï¿½
+	 * @return ï¿½î¶¯ï¿½Ð±ï¿½
 	 * @see tell.server.dao.ActivityDao#getIsolateActivites()
 	 */
 	public Set<Activity> getIsolateActivites() {
@@ -342,7 +342,7 @@ public class ActivityDaoImpl implements ActivityDao{
 	}
 
 	/*
-	 * µÃµ½ËùÓÐµÄ»î¶¯
+	 * ï¿½Ãµï¿½ï¿½ï¿½ï¿½ÐµÄ»î¶¯
 	 * @return 
 	 * @see tell.server.dao.ActivityDao#getActivities()
 	 */
@@ -359,7 +359,9 @@ public class ActivityDaoImpl implements ActivityDao{
 
 			activites = new HashSet<Activity>();
 			for(Activity act:(List<Activity>)query.list()){
-				activites.add(new Activity(act));
+				if(act.getType() != 3){
+					activites.add(new Activity(act));
+				}
 			}
 			session.getTransaction().commit();
 		}
